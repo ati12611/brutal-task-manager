@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brutal Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Боковая панель -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span class="logo-text">BRUTAL</span>
+            </div>
+            
+            <nav class="nav">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-tasks"></i>
+                    <span>Задачи</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Календарь</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Статистика</span>
+                </a>
+                <a href="#" id="view-mode-toggle" class="nav-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Режим просмотра</span>
+                </a>
+            </nav>
+            
+            <div class="status">
+                <div class="status-light" id="status-indicator"></div>
+                <span id="status-text">Режим редактирования</span>
+            </div>
+        </div>
+        
+        <!-- Основной контент -->
+        <main class="main-content">
+            <header class="header">
+                <h1 class="title">
+                    <i class="fas fa-list-check"></i>
+                    Задачи
+                </h1>
+                <div class="header-controls">
+                    <div class="date-display" id="current-date"></div>
+                </div>
+            </header>
+            
+            <div class="content">
+                <!-- Форма добавления задачи -->
+                <div class="add-task-form" id="add-task-form">
+                    <div class="form-row">
+                        <input type="date" id="task-date" class="date-input">
+                        <input type="text" id="task-text" class="task-input" placeholder="Введите новую задачу...">
+                        <button id="add-task-btn" class="btn-add">
+                            <i class="fas fa-plus"></i>
+                            Добавить
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Таблица задач -->
+                <div class="table-container">
+                    <table class="task-table">
+                        <thead>
+                            <tr>
+                                <th class="col-date">Дата</th>
+                                <th class="col-task">Задача</th>
+                                <th class="col-done">Выполнено/дата</th>
+                                <th class="col-actions">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tasks-container">
+                            <!-- Задачи будут добавляться сюда -->
+                        </tbody>
+                    </table>
+                    
+                    <!-- Состояние при отсутствии задач -->
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-icon">📋</div>
+                        <h3>Нет задач</h3>
+                        <p>Добавьте первую задачу, используя форму выше</p>
+                    </div>
+                </div>
+                
+                <!-- Информация для заказчика -->
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i> Информация для заказчика</h3>
+                    <p>Это демо-версия брутального таск-менеджера. Все изменения сохраняются локально в вашем браузере.</p>
+                    <div class="share-info">
+                        <p><strong>Для предоставления доступа заказчику:</strong></p>
+                        <ol>
+                            <li>Активируйте "Режим просмотра" в боковой панели</li>
+                            <li>Скопируйте ссылку на эту страницу</li>
+                            <li>Отправьте заказчику</li>
+                        </ol>
+                        <div class="share-link">
+                            <input type="text" id="share-link" readonly value="">
+                            <button id="copy-link-btn" class="btn-copy">
+                                <i class="fas fa-copy"></i> Копировать
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
